@@ -15,7 +15,7 @@ RUN ln -sf /bin/true /sbin/initctl
 
 RUN apt-get -qq update
 RUN apt-get -qqy install wget screen
-RUN cd /tmp; wget -nv -q  http://www.infobright.org/downloads/ice/infobright-4.0.7-0-x86_64-ice.deb
+RUN cd /tmp; wget -nv -q  https://www.infobright.org/downloads/ice/infobright-4.0.7-0-x86_64-ice.deb
 RUN dpkg -i /tmp/infobright-4.0.7-0-x86_64-ice.deb >/dev/null
 
 RUN cd /usr/local/infobright/; ./postconfig.sh >/dev/null
