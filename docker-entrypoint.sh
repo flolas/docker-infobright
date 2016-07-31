@@ -25,4 +25,4 @@ if [ -z "$(ls -A "$MYSQL_DATADIR")" -a "${1%_safe}" = 'mysqld' ]; then
 fi
 
 chown -R mysql:mysql "$MYSQL_DATADIR"
-exec "$1"
+exec "$1" & java -jar "$2"
