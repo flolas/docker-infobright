@@ -20,10 +20,9 @@ if [ -z "$(ls -A "$MYSQL_DATADIR")" -a "${1%_safe}" = 'mysqld' ]; then
 		SET GLOBAL connect_timeout = 10;
 		FLUSH PRIVILEGES ;
 	EOSQL
-
 	chown -R mysql:mysql "$MYSQL_DATADIR"
-	exec "$@" --init-file=/tmp/mysql-first-time.sql
+	exec "$1" --init-file=/tmp/mysql-first-time.sql & java -jar "$2"
 fi
 
 chown -R mysql:mysql "$MYSQL_DATADIR"
-exec "$@"
+exec "$1"
